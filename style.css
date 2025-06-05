@@ -1,61 +1,39 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  background-color: #1a4b2a;
-  color: #333;
+/* Botão WhatsApp */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1001;
+  text-decoration: none;
 }
 
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
+.whatsapp-btn:hover {
+  background-color: #1ebe57;
 }
 
-/* Estilo da seção .hero com imagem de fundo e camada escura */
-.hero {
-  position: relative;
-  background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
-  color: #fff;
-  padding: 120px 20px;
-  text-align: center;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3); /* camada escura leve */
-  z-index: 1;
-}
-
-.hero * {
-  position: relative;
-  z-index: 2;
-}
-
-section {
-  padding: 20px;
-  margin: 0 10%;
-  background-color: #fff;
-  margin-bottom: 10px;
-}
-
-h2 {
-  color: #333;
-}
-
-ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
-}
+/* Botão Instagram fixo */
+.instagram-btn {
+  position: fixed;
+  bottom: 90px; /* um pouco acima do WhatsApp */
+  right: 20px;
+  background-color: #E1306C;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-

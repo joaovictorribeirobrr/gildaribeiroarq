@@ -1,199 +1,289 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gilda Ribeiro Arquitetura e Urbanismo</title>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <title>Gilda Ribeiro - Arquitetura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Helvetica Neue', sans-serif;
+    :root {
+      --bg-color: #1e1e2f;
+      --text-color: #e0e0e0;
+      --accent-color: #7c3aed;
+      --header-bg: rgba(30, 30, 47, 0.95);
+      --card-bg: #2e2e40;
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f5f3ef;
-      color: #444;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
     header {
-      background-color: #a8c3a0;
-      padding: 20px;
-      text-align: center;
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 999;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      color: #333;
+      width: 100%;
+      background: var(--header-bg);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      z-index: 1000;
     }
 
     nav {
-      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
     }
 
     nav a {
-      margin: 0 15px;
-      color: #444;
+      margin: 0 1rem;
       text-decoration: none;
-      font-weight: bold;
+      color: var(--text-color);
+      font-weight: 500;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #000;
+      color: var(--accent-color);
+    }
+
+    section {
+      padding: 100px 10% 60px;
     }
 
     .hero {
-      position: relative;
-      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
-      color: #ffffff; /* texto Arquitetura, Urbanismo e Interiores Transformando ideias em espaços únicos e funcionais*/
-      padding: 120px 20px;
-      text-align: center;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+      background: url('https://source.unsplash.com/1600x900/?architecture') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      flex-direction: column;
+      opacity: 0;
+      transform: scale(1.05);
+      animation: fadeInHero 2s ease-in-out forwards;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.3); /* camada escura leve */
-      z-index: 1;
+    @keyframes fadeInHero {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
-    .hero * {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+    .hero h1 {
+      font-size: 3.5rem;
     }
 
     .hero p {
       font-size: 1.2rem;
+      margin-top: 10px;
     }
 
-    .cta a {
-      background-color: #8fb191;
-      color: #fff;
-      padding: 12px 25px;
-      text-decoration: none;
-      border-radius: 5px;
-      display: inline-block;
-      margin-top: 20px;
-      transition: background-color 0.3s, transform 0.3s;
+    .fadein {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
     }
 
-    .cta a:hover {
-      background-color: #6f9876;
+    .fadein.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .about img {
+      width: 40%;
+      border-radius: 15px;
+      transition: transform 0.5s ease;
+    }
+
+    .about img:hover {
       transform: scale(1.05);
     }
 
-    section {
-      padding: 60px 20px;
-      text-align: center;
-      background-color: #fff;
+    .about div {
+      flex: 1;
     }
 
-    h3 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: #5c5c5c;
-    }
-
-    .gallery {
+    .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
     }
 
-    .gallery img {
+    .projects img {
       width: 100%;
-      height: auto;
       border-radius: 10px;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s ease;
     }
 
-    .gallery img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    .projects img:hover {
+      transform: scale(1.02);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 0.5rem 0;
     }
 
     footer {
-      background-color: #a8c3a0;
+      background: #111;
+      color: white;
       text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #333;
+      padding: 1rem;
+    }
+
+    .scroll-darken {
+      background: rgba(30, 30, 47, 0.85);
+      transition: background 0.3s ease;
+    }
+
+    /* Botão WhatsApp */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      z-index: 1001;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe57;
+    }
+
+    /* Botão Instagram fixo */
+    .instagram-btn {
+      position: fixed;
+      bottom: 90px; /* acima do WhatsApp */
+      right: 20px;
+      background-color: #E1306C;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      z-index: 1001;
+      text-decoration: none;
+    }
+
+    .instagram-btn:hover {
+      background-color: #c1275a;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Gilda Ribeiro Arquitetura</h1>
+  <header id="navbar">
     <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>      
+      <div><strong>Gilda Ribeiro</strong></div>
+      <div>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </div>
     </nav>
   </header>
 
-  <section class="hero" data-aos="fade-up">
-    <h2>Arquitetura, Urbanismo e Interiores</h2>
-     <p>Transformando ideias em espaços únicos e funcionais</p>
-    <div class="cta">
-      <a href="https://wa.me/5516991463969">Solicitar Orçamento</a>
+  <section class="hero">
+    <h1>Gilda Ribeiro</h1>
+    <p>Arquiteta, Urbanista e Designer de Interiores</p>
+  </section>
+
+  <section class="about fadein" id="sobre">
+    <img src="https://source.unsplash.com/800x600/?interior,design" alt="Gilda Ribeiro" />
+    <div>
+      <h2>Sobre Mim</h2>
+      <p>Sou Gilda Ribeiro, arquiteta formada, com experiências em arquitetura hospitalar, corporativa e residencial, além de vasta atuação como designer de interiores e projetista freelancer. Tenho paixão por transformar espaços com criatividade, técnica e sensibilidade estética.</p>
+      <p>Ferramentas: Revit, AutoCAD, SketchUp, Lumion, Vray, Photoshop, Illustrator, entre outros.</p>
     </div>
   </section>
 
-  <section id="sobre" data-aos="fade-up">
-    <h3>Prazer, Gilda!</h3>
-  <div>
-    <img src="./fotos/foto gi.png" alt="foto gi" />
-  </div>
-    <p>Oi, eu sou a Gilda Ribeiro! Sou arquiteta e designer de interiores, formada em Arquitetura e Urbanismo pelo Centro Universitário Moura Lacerda. Adoro transformar sonhos em realidade, criando projetos residenciais, comerciais e hospitalares que juntam beleza, praticidade e personalidade.
-       Meu foco é fazer com que cada espaço seja único, pensado especialmente para você — com muito cuidado, criatividade e atenção a cada detalhe. Quero que seu projeto tenha a cara e o jeito que você sempre quis, trazendo inovação e conforto em todas as etapas do trabalho.
-       Vamos transformar seu ambiente juntos?</p>    
-  </section>
-
-  <section id="projetos" data-aos="fade-up">
-    <h3>Galeria de Projetos</h3>
-    <div class="gallery">
-      <img src="./fotos/imagem 1 - casa moderna bonita.png" alt="casa moderna" />
-      <img src="./fotos/imagem 2 - colorido.png" alt="predio colorido" />
-      <img src="./fotos/cowork.png" alt="cowork" />
-      <img src="./fotos/mesa com vaso.png" alt="mesa com vaso" />      
+  <section id="projetos" class="fadein">
+    <h2>Meus Projetos</h2>
+    <div class="projects">
+      <img src="https://source.unsplash.com/800x600/?architecture,modern" alt="Projeto 1" />
+      <img src="https://source.unsplash.com/800x600/?architecture,house" alt="Projeto 2" />
+      <img src="https://source.unsplash.com/800x600/?interior,living-room" alt="Projeto 3" />
+      <img src="https://source.unsplash.com/800x600/?building,design" alt="Projeto 4" />
+      <img src="https://source.unsplash.com/800x600/?office,architecture" alt="Projeto 5" />
     </div>
   </section>
 
-  <section id="contato" data-aos="fade-up">
-  <h3>Endereço e contato:</h3>
-  <p> Avenida Professora Edul Rangel Rabello 405 - Residencial Jequitibá - Ribeirão Preto, SP</p>
-  <p> gildaribeiroarq@gmail.com | <a href="https://wa.me/5516991463969">WhatsApp</a></p>
-  <div>
-    <a href="https://www.instagram.com/gildahribeiro"><img src="./fotos/icone instagram.png" alt="Instagram"></a>
-    <a href="https://www.facebook.com/gildahribeiro"><img src="./fotos/icone face.png" alt="Facebook"></a>
-    <a href="https://www.pinterest.com/gildahribeiro"><img src="./fotos/pinterest.png" alt="Pinterest"></a>
-  </div>
-</section>
-
+  <section id="contato" class="contact fadein">
+    <h2>Contato</h2>
+    <p>Email: gildaribeiroarq@gmail.com / gildaribeiroarq@outlook.com</p>
+    <p>Telefone: (16) 99146-3969</p>
+    <p>Localização: Ribeirão Preto - SP</p>
+  </section>
 
   <footer>
-    © 2025 Gilda Ribeiro | Todos os direitos reservados.
+    &copy; 2025 Gilda Ribeiro - Todos os direitos reservados
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- Botão WhatsApp -->
+  <a href="https://wa.me/5516991463969" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
+      <path d="M20.52 3.48A11.805 11.805 0 0012 0C5.373 0 0 5.372 0 12c0 2.119.553 4.148 1.6 5.954L0 24l6.19-1.586A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12 0-3.217-1.258-6.235-3.48-8.52zm-8.52 18a9.893 9.893 0 01-5.326-1.56l-.383-.237-3.677.94.982-3.588-.25-.384a9.89 9.89 0 01-1.584-5.286c0-5.477 4.463-9.938 9.94-9.938 2.66 0 5.156 1.038 7.029 2.911a9.85 9.85 0 012.91 7.025c-.001 5.476-4.463 9.937-9.94 9.937zm5.294-7.234c-.291-.145-1.721-.851-1.988-.948-.267-.097-.461-.145-.656.146s-.754.948-.925 1.142c-.171.195-.342.218-.633.073-.291-.145-1.227-.452-2.34-1.445-.865-.77-1.448-1.722-1.62-2.012-.171-.29-.018-.447.127-.592.13-.13.291-.338.437-.507.145-.171.193-.29.291-.483.097-.194.048-.364-.024-.51-.072-.145-.656-1.58-.9-2.161-.236-.567-.477-.49-.656-.5l-.56-.01c-.193 0-.506.072-.77.364s-1.01.989-1.01 2.41 1.035 2.79 1.18 2.983c.145.193 2.041 3.114 4.947 4.366.692.298 1.23.476 1.65.609.693.219 1.324.188 1.82.114.555-.086 1.721-.703 1.965-1.381.244-.679.244-1.26.171-1.381-.072-.122-.267-.193-.559-.337z"/>
+    </svg>
+  </a>
+
+  <!-- Botão Instagram -->
+  <a href="https://www.instagram.com/gildahribeiro/" target="_blank" rel="noopener" class="instagram-btn" aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
+      <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zM12 7.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9zm5.25-.75a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0z"/>
+    </svg>
+  </a>
+
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
+    // Fade in sections on scroll
+    const faders = document.querySelectorAll('.fadein');
+
+    function checkFade() {
+      const triggerBottom = window.innerHeight * 0.85;
+
+      faders.forEach(fader => {
+        const top = fader.getBoundingClientRect().top;
+
+        if(top < triggerBottom) {
+          fader.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkFade);
+    window.addEventListener('load', checkFade);
   </script>
 </body>
 </html>
