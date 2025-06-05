@@ -1,3 +1,155 @@
+:root {
+  --bg-color: #1e1e2f;
+  --text-color: #e0e0e0;
+  --accent-color: #7c3aed;
+  --header-bg: rgba(30, 30, 47, 0.95);
+  --card-bg: #2e2e40;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--header-bg);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+section {
+  padding: 100px 10% 60px;
+}
+
+.hero {
+  background: url('https://source.unsplash.com/1600x900/?architecture') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  flex-direction: column;
+  opacity: 0;
+  transform: scale(1.05);
+  animation: fadeInHero 2s ease-in-out forwards;
+}
+
+@keyframes fadeInHero {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.fadein {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.fadein.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about img {
+  width: 40%;
+  border-radius: 15px;
+  transition: transform 0.5s ease;
+}
+
+.about img:hover {
+  transform: scale(1.05);
+}
+
+.about div {
+  flex: 1;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.projects img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.projects img:hover {
+  transform: scale(1.02);
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact p {
+  margin: 0.5rem 0;
+}
+
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.scroll-darken {
+  background: rgba(30, 30, 47, 0.85);
+  transition: background 0.3s ease;
+}
+
 /* Botão WhatsApp */
 .whatsapp-btn {
   position: fixed;
@@ -24,7 +176,7 @@
 /* Botão Instagram fixo */
 .instagram-btn {
   position: fixed;
-  bottom: 90px; /* um pouco acima do WhatsApp */
+  bottom: 90px;
   right: 20px;
   background-color: #E1306C;
   width: 56px;
@@ -42,4 +194,42 @@
 
 .instagram-btn:hover {
   background-color: #c1275a;
+}
+
+/* Modal para imagem ampliada */
+#imgModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+#imgModal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+#closeModal {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  z-index: 2001;
+  transition: color 0.3s ease;
+}
+
+#closeModal:hover {
+  color: var(--accent-color);
 }

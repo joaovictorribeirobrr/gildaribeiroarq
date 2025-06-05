@@ -131,6 +131,7 @@
       width: 100%;
       border-radius: 10px;
       transition: transform 0.3s ease;
+      cursor: pointer; /* Indicando que a imagem é clicável */
     }
 
     .projects img:hover {
@@ -202,6 +203,44 @@
     .instagram-btn:hover {
       background-color: #c1275a;
     }
+
+    /* Modal para imagem ampliada */
+    #imgModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    #imgModal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    }
+
+    #closeModal {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+      z-index: 2001;
+      transition: color 0.3s ease;
+    }
+
+    #closeModal:hover {
+      color: var(--accent-color);
+    }
   </style>
 </head>
 <body>
@@ -222,7 +261,7 @@
   </section>
 
   <section class="about fadein" id="sobre">
-    <img src="./fotos/foto gi.png" alt="Gilda Ribeiro" />
+    <img src="./fotos/54f6dba1-b24f-4432-9dab-b42d96fe4908.jfif" alt="Gilda Ribeiro" />
     <div>
       <h2>Sobre Mim</h2>
       <p>Sou Gilda Ribeiro, arquiteta formada, com experiências em arquitetura hospitalar, corporativa e residencial, além de vasta atuação como designer de interiores e projetista freelancer. Tenho paixão por transformar espaços com criatividade, técnica e sensibilidade estética.</p>
@@ -268,6 +307,12 @@
     </svg>
   </a>
 
+  <!-- Modal para mostrar a imagem ampliada -->
+  <div id="imgModal">
+    <span id="closeModal" aria-label="Fechar modal">&times;</span>
+    <img id="modalImg" src="" alt="Imagem ampliada" />
+  </div>
+
   <script>
     // Fade in sections on scroll
     const faders = document.querySelectorAll('.fadein');
@@ -286,6 +331,41 @@
 
     window.addEventListener('scroll', checkFade);
     window.addEventListener('load', checkFade);
+
+    // Modal de imagem ampliada
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.getElementById('closeModal');
+
+    const projectImages = document.querySelectorAll('.projects img');
+
+    projectImages.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Mudar background do header ao rolar página
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 10) {
+        navbar.classList.add('scroll-darken');
+      } else {
+        navbar.classList.remove('scroll-darken');
+      }
+    });
   </script>
 </body>
 </html>
